@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task-04</title>
+</head>
+<body>
+	
+    <script>
+	/*4. Реализовать основные 4 арифметические операции (+, -, /, *) в виде функций
+	с двумя параметрами. Т.е. например, функция для сложения должна принимать два числа,
+	складывать их и возвращать результат.
+	Обязательно использовать оператор return.*/
+
+	'use stict';
+
+	function add(arg1, arg2) {
+	    return arg1 + arg2;
+	}
+	
+	function subtract(arg1, arg2) {
+	    return arg1 - arg2;
+	}
+
+	function multiply(arg1, arg2) {
+	    return arg1 * arg2;
+	}
+
+	function divide(arg1, arg2) {
+	    if (arg2 != 0) {
+	        return (arg1 / arg2).toFixed(2);
+	    }
+		alert('It\'s impossible.');
+	}
+
+	let arg1 = +prompt('Enter the first number:');
+	let arg2 = +prompt('Enter the second number:');
+
+	alert('The sum is ' + add(arg1, arg2) + '\nThe difference is ' + subtract(arg1, arg2) +
+		'\nThe product is ' + multiply(arg1, arg2) + '\nThe quotient is ' + divide(arg1, arg2));
+
+    </script>
+</body>
+</html>

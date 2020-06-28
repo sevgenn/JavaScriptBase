@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task-03</title>
+</head>
+<body>
+	
+    <script>
+	/*3. Объявить две переменные a и b и задать им целочисленные
+	произвольные начальные значения.
+	Затем написать скрипт, который работает по следующему принципу:
+	- если a и b положительные, вывести их разность (ноль можно считать
+	  положительным числом);
+	- если а и b отрицательные, вывести их произведение;
+	- * (этот пункт по сложнее, делайте по желанию) если а и b разных знаков,
+	  вывести их сумму.
+	Подсказка, чтобы сделать последний пункт можно также попробовать
+	погуглить по запросу «получить знак числа javascript».*/
+
+	'use strict';
+//Несколько возможных вариантов для количества без учета быстродействия
+
+	let a = parseInt(prompt('Enter an integer:'));
+	let b = +prompt('Enter another integer:');
+
+// 1 variant:
+
+	document.write('1 вариант: ');	
+	if (a >= 0 && b >= 0) {
+	    document.write(`The difference of ${a} and ${b} is ` + (a - b));
+	}
+	else if (a * b > 0) {
+	    document.write(`The product of ${a} and ${b} is ` + (a * b));
+	}
+	else {
+	    document.write(`The sum of ${a} and ${b} is ` + (a + b));
+	}
+	document.write('<br>')
+	
+// 2 variant:
+	
+	document.write('2 вариант: ');
+	if ((Math.sign(a) + Math.sign(b)) == -2) {
+	    document.write(`The product of ${a} and ${b} is ` + (a * b));
+	}
+	else if ((Math.sign(a) != -1) && (Math.sign(b) != -1)) {
+	    document.write(`The difference of ${a} and ${b} is ` + (a - b));
+	}
+	else {
+	    document.write(`The sum of ${a} and ${b} is ` + (a + b));
+	}
+	document.write('<br>')
+
+// 3 variant:
+	
+	document.write('3 вариант: ');
+	if (a >= 0 && b >= 0) {
+	    document.write(`The difference of ${a} and ${b} is ` + (a - b));
+	}
+	else if ((a / Math.abs(a)) != (b / Math.abs(b))) {
+	    document.write(`The sum of ${a} and ${b} is ` + (a + b));
+	}
+	else {
+	    document.write(`The product of ${a} and ${b} is ` + (a * b));
+	}
+
+    </script>
+</body>
+</html>
