@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Task_04</title>
+</head>
+<body>
+
+    <script>
+        /* 4. Перед вами находится массив с продуктами, сегодня распродажа
+        и вам нужно на каждый товар применить скидку 15%, можете использовать
+        метод forEach */
+
+        'use strict';
+
+        const products = [
+            {
+                id: 3,
+                price: 200,
+            },
+            {
+                id: 4,
+                price: 900,
+            },
+            {
+                id: 1,
+                price: 1000,
+            },
+        ];
+
+        /**
+         * Функция перебирает массив товара и перезаписывает цену с учетом скидки (discount)
+         * @param array - массив товаров
+         * @param discount - скидка
+         */
+        function priceDiscount(array, discount) {
+            array.forEach((item) => {
+                item.price *= (1 - discount);
+            })          // не понял, нужна ли здесь точка с запятой
+        }               // нужно ли здесь возвращать массив (return)?
+                        // ведь функция изменяет сам массив, и результат сохраняется в массиве
+
+        priceDiscount(products, 0.15);
+        console.log(products);
+
+    </script>
+</body>
+</html>
