@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Task_05</title>
+</head>
+<body>
+
+    <script>
+        /* 5. Перед вами находится массив с продуктами в интернет-магазине. Вам нужно:
+        1. Получить все товары, у которых есть фотографии, можете использовать метод filter
+        2. Отсортируйте товары по цене (от низкой цены к высокой), можете использовать метод sort */
+
+        'use strict';
+
+        const products = [
+            {
+                id: 3,
+                price: 127,
+                photos: [
+                    "1.jpg",
+                    "2.jpg",
+                ]
+            },
+            {
+                id: 5,
+                price: 499,
+                photos: []
+            },
+            {
+                id: 10,
+                price: 26,
+                photos: [
+                    "3.jpg"
+                ]
+            },
+            {
+                id: 8,
+                price: 78,
+            },
+        ];
+
+        // 1 задание:
+        /**
+         * Функция пр веряет объект на наличие не пустого поля photos
+         * @param item - проверяемый объект
+         * @returns {boolean}
+         */
+        function productsByPhoto(item) {
+            if ('photos' in item && item.photos != 0) {
+                return true;
+            }
+        }
+
+        // или:
+
+        function productsByPhoto2(item) {
+            if (item.photos && item.photos.length) {
+                return true;
+            }
+        }
+
+        /* Не получилось реализовать универсальную функцию с двумя параметрами
+        productByIndex(item, index), чтобы выбирать нужный индекс уже при подстановке
+        в filter  - не понял, как в этом случае подставлять нужный аргумент index */
+        const photoProducts = products.filter(productsByPhoto);
+        console.log(photoProducts);
+
+        const photoProducts2 = products.filter(productsByPhoto2);
+        console.log(photoProducts2);
+
+     // 2 задание:
+
+        function comparePrice(a, b) {
+            if (a.price < b.price) {
+                return -1;
+            } else if (a.price > b.price) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+
+        console.log(products.sort(comparePrice));
+
+    </script>
+</body>
+</html>
