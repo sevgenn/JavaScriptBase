@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task-05</title>
+</head>
+<body>
+	
+    <script>
+	/*5. Реализовать функцию с тремя параметрами:
+	function mathOperation(arg1, arg2, operation),
+	где arg1, arg2 – значения аргументов, operation – строка с названием операции.
+	В зависимости от переданного значения операции (использовать switch) выполнить
+	одну из арифметических операций (использовать функции из задания 4) и вернуть
+	полученное значение.*/
+
+
+	'use strict';
+
+	function mathOperation(arg1, arg2, operation) {
+	    switch(operation) {
+		case "+":
+		    alert('The sum is ' + add(arg1, arg2));
+		    break;
+		case "-":
+		    alert('The difference is ' + subtract(arg1, arg2));
+		    break;
+		case "*":
+		    alert('The product is ' + multiply(arg1, arg2));
+		    break;
+		case "/":
+		    alert('The quotient is ' + divide(arg1, arg2));
+		    break;
+		default:
+		    alert('Enter correct data.');
+	    }
+	}	
+	
+	function add(arg1, arg2) {
+	    return (arg1 + arg2);
+	}
+	
+	function subtract(arg1, arg2) {
+	    return (arg1 - arg2);
+	}
+
+	function multiply(arg1, arg2) {
+	    return (arg1 * arg2);
+	}
+
+	function divide(arg1, arg2) {
+	    if (arg2 != 0) {
+	        return (arg1 / arg2).toFixed(2);
+	    }
+		alert('It\'s impossible.');
+	}
+
+	let arg1 = +prompt('Enter the first number:');
+	let arg2 = +prompt('Enter the second number:');
+	let operation = prompt('Enter "+", "-", "*" or "/":');
+	
+	mathOperation(arg1, arg2, operation);
+
+    </script>
+</body>
+</html>
