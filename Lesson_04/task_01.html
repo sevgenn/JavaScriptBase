@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task-01</title>
+</head>
+<body>
+	
+  <script>
+
+/* 1. Написать функцию, преобразующую число в объект.
+Передавая на вход число в диапазоне [0, 999],
+мы должны получить на выходе объект, в котором в соответствующих свойствах описаны разряды числа:
+- единицы (в свойстве units)
+- десятки (в свойстве tens)
+- сотни (в свойстве hundereds)
+Например, для числа 45 мы должны получить следующий объект:
+{
+units: 5, //это единицы
+tens: 4, //это десятки
+hundreds: 0, //это сотни
+}
+Если число было передано вне [0, 999] диапазона, не целое число или вообще не число,
+необходимо выдать соответствующее сообщение с помощью console.log и вернуть пустой объект. */
+
+	'use strict';
+
+// 1 вариант ########################
+
+function digits() {
+  let n = prompt('');
+  if (Number.isInteger(parseInt(n)) && (n.length >= 0 && n.length <= 3)) {
+    return {
+      units: +n[2],
+      tens: +n[1],
+      hundrerds: +n[0]
+    };
+  }
+  console.log('Error 0<=n<=999!')
+  return {};
+}
+
+console.log(digits());
+
+
+// 2 вариант ########################
+//Попробовал через объект
+
+let num = {
+  units: null,
+  tens: null,
+  hundrerds: null,
+
+  getDigits: function() {
+    let data = parseInt(prompt('Enter a number between 0 and 999: '));
+    if (!Number.isInteger(data) || data < 0 || data > 999) {
+      console.log('Error 0<=n<=999!')
+      return this;
+    }
+    this.units = data % 10;
+    this.tens = Math.floor(data / 10) % 10;
+    this.hundrerds = Math.floor(data / 100);
+    return this;
+  }
+}
+
+console.log(num.getDigits());	 
+   
+    </script>
+</body>
+</html>
